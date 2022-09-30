@@ -1,0 +1,15 @@
+# Blender MTL File: 'None'
+# Material Count: 1
+
+newmtl IDP_root.001
+Ns 86.470579
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 0.000000
+illum 9
+map_Bump F:\\IFSUL\\2021-2\\temp\\cim59vrioikg-IndoorPotPlant\\IndoorPotPlant\\indoor plant_02_fbx\\indoor plant_2_NOR.jpg
+map_Kd F:\\IFSUL\\2021-2\\temp\\cim59vrioikg-IndoorPotPlant\\IndoorPotPlant\\indoor plant_02_fbx\\indoor plant_2_COL.jpg
+map_Ks F:\\IFSUL\\2021-2\\temp\\cim59vrioikg-IndoorPotPlant\\IndoorPotPlant\\indoor plant_02_fbx\\indoor plant_2_COL.jpg

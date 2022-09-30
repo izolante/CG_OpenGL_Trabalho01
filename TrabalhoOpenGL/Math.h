@@ -1,0 +1,114 @@
+#ifndef MATH_H_INCLUDED
+#define MATH_H_INCLUDED
+
+#define _PI 3.14159265358979323846
+#define _PI_2 1.57079632679489661923
+#define _PI_4 0.78539816339744830962
+
+#include <cmath>
+#include <Eigen/Dense>
+class Math
+{
+public:
+    static float degree2rad(float g)
+    {
+        float r = g * (float)(_PI / 180.0);
+
+        return r;
+    }
+
+    static double degree2rad(double g)
+    {
+        double r = g * (double)(_PI / 180.0);
+
+        return r;
+    }
+
+    static Eigen::Matrix4f translationMat(Eigen::Vector3f fator)
+    {
+
+        Eigen::Matrix4f mat = Eigen::Matrix4f::Identity();
+        mat(0, 3) = fator.x();
+        mat(1, 3) = fator.y();
+        mat(2, 3) = fator.z();
+
+        return mat;
+    }
+
+    static Eigen::Matrix4f scaleMat(Eigen::Vector3f fator)
+    {
+
+        Eigen::Matrix4f mat = Eigen::Matrix4f::Identity();
+        mat(0, 0) = fator.x();
+        mat(1, 1) = fator.y();
+        mat(2, 2) = fator.z();
+
+        return mat;
+    }
+
+    // angle = radianos
+    static Eigen::Matrix4f yRotationMat(float angle)
+    {
+
+        Eigen::Matrix4f mat = Eigen::Matrix4f::Identity();
+
+        float s = sin(angle);
+        float c = cos(angle);
+
+        mat(0, 0) = c;
+        mat(0, 2) = s;
+
+        mat(2, 0) = -s;
+        mat(2, 2) = c;
+
+        return mat;
+    }
+
+    // angle = radianos
+
+    static Eigen::Matrix4f xRotationMat(float angle)
+    {
+
+        Eigen::Matrix4f mat = Eigen::Matrix4f::Identity();
+
+        float s = sin(angle);
+        float c = cos(angle);
+
+        mat(1, 1) = c;
+        mat(1, 2) = -s;
+
+        mat(2, 1) = s;
+        mat(2, 2) = c;
+
+        return mat;
+    }
+
+    static Eigen::Matrix4f zRotationMat(float angle)
+    {
+
+        Eigen::Matrix4f mat = Eigen::Matrix4f::Identity();
+
+        float s = sin(angle);
+        float c = cos(angle);
+
+        mat(0, 0) = c;
+        mat(0, 1) = -s;
+
+        mat(1, 0) = s;
+        mat(1, 1) = c;
+
+        return mat;
+    }
+    // normalizar um valor pertecente a uma faixa de valores para uma nova.
+    // Exemplo: val=50, faixa 1...100. Normalizar "val" para uma nova faixa de valores 1...1000
+    // normalize(50, 1, 100, 1, 1000);
+    static float normalize(float val, float minVal, float maxVal, float newRangeMin, float newRangeMax)
+    {
+        float percentage = (val - minVal) / (maxVal - minVal);
+        float newVal = percentage * (newRangeMax - newRangeMin) + newRangeMin;
+
+        return newVal;
+    }
+};
+
+#endif
